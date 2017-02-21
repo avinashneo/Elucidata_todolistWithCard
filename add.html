@@ -1,0 +1,25 @@
+<link rel="stylesheet" type="text/css" href="css/angular-moment-picker.css">
+<form name="form.userForm" ng-submit="addNewCard()">
+<div class="modal-header">
+<h3 class="modal-title">Add Card</h3>
+</div>
+<div class="modal-body">
+      
+        <div class="inputContainer">
+          <input type="text" id="description" class="newCard" placeholder="card name" ng-model="feedbackData.newCard">
+          <p ng-show="form.userForm.newCard.$invalid && !form.userForm.newCard.$pristine" class="help-block">Card Name is required.</p>
+          <label for="description">Card Name</label>
+        </div>
+        
+      
+      
+      
+      <!-- taskList --> 
+  </div>
+<div class="modal-footer">
+    <button type="submit" class="cardAdd btn btn-default" ng-disabled="form.userForm.$invalid" ><i class="fa fa-plus icon"></i>Add Card</button>
+<button class="btn btn-warning" type="button"
+ng-click="close()">Cancel</button>
+</div>
+</form>
+          

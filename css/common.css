@@ -1,0 +1,65 @@
+#topMargin{
+	margin-top: 75px;
+}
+
+.debug{
+	width: 600px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.task-filter {
+	margin-bottom: 25px;
+}
+
+.task-filter>li>a{
+	padding: 8px 12px;
+	font-size: 12px;
+}
+
+#taskAdd {
+	margin-left: 40px;
+}
+
+.taskField{
+	padding-left: 5px;
+	font-size: 20px;
+}
+
+#newTaskField{
+	margin: 20px;
+	width: 75%;
+}
+
+#taskSubmit{
+	margin-top: -5px;
+}
+
+.taskTask{
+	margin-bottom: 20px;
+}
+
+.taskName{
+	font-size: 20px;
+	border-bottom: 1px lightgray solid;
+	padding-bottom:5px;
+}
+
+.task-edit-place span {
+  cursor: pointer;
+}
+
+.task-edit-place input {
+  display: none;
+}
+
+.task-edit-place.active span {
+  display: none;
+}
+
+.task-edit-place.active input {
+  display: inline-block;
+}
+.cardDel{
+    margin-left: 10px;
+}

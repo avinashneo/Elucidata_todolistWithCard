@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" ng-app="task">
+<head>
+	
+	<title>Task-List</title>
+	
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/common.css">
+
+
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/angular.min.js"></script>
+        <script src="js/ui-bootstrap-tpls-0.9.0.js"></script>
+	<script src="js/angular-local-storage.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/angular.editInPlace.js"></script>
+	
+</head>
+<body ng-controller="TaskCtrl" ng-init="init()">
+        <div class="row">
+            <div class="col-xs-12 text-center"><h1>To-Do Task List</h1></div>
+        </div>
+	<div class="container" id="topMargin">
+		<div class="row">
+			<div class="col-xs-3">
+				<div class="list-group">
+					<a href="#" ng-repeat="tasks in model" class="list-group-item" ng-class="{'active' : currentShow === $index}" ng-click="changeTask($index)" >
+					 <button type="button" class="close pull-right cardDel" aria-hidden="true" ng-click="deleteCard(tasks)">&times;</button>
+                                         <span class="badge">{{tasks.list.length}}</span>
+                                       
+					{{tasks.name}}
+					</a>
+				</div>
+			</div>
+                        
+			<div class="col-xs-6">
+				<div class="row">
+					<div class="col-xs-7">
+						<div class="input-group">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+							</span>
+							<input type="search" class="form-control" placeholder="Search" ng-model="taskSearch">
+						</div>
+					</div>
+					<div class="col-xs-5">
+						<ul class="nav nav-pills task-filter">
+						  <li ng-class="{'active' : show == 'All' }" ng-click="show='All'"><a href="#">All</a></li>
+						  <li ng-class="{'active' : show == 'Incomplete' }" ng-click="show='Incomplete'"><a href="#">Incomplete</a></li>
+						  <li ng-class="{'active' : show == 'Complete' }" ng-click="show='Complete'"><a href="#">Complete</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row" id="taskAdd">
+					<div class="form-group">
+						<input class="taskField" id="newTaskField" type="text" ng-model="newTask" placeholder="Add New Task" >
+						<button id="taskSubmit" class="btn btn-default" ng-click="addTask()">Add</button>
+					</div>
+				</div>
+				<div class="row">
+					<ul class="list-unstyled" ng-repeat="tasks in model track by $index" ng-model="tasks.list" ng-show="$index === currentShow">
+						<li class="taskTask" ng-repeat="task in tasks.list | filter:showFn | filter :taskSearch ">
+							<input class="taskCheckbox" ng-model="task.isDone" type="checkbox">
+							<label class="taskCheckboxlabel" ></label>
+							<task-edit-place value="task.taskName"></task-edit-place>
+							<button type="button" class="close pull-right" aria-hidden="true" ng-click="deleteTask(task)">&times;</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+                        <div class="col-xs-3">
+                            <button id="cardSubmit" class="btn btn-default" ng-click="open()">Add Card</button>
+                        </div>
+		</div>
+
+		
+	</div>
+
+	
+</body>
+</html>
